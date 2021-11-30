@@ -7,5 +7,5 @@ print("A is ",type(a))
 a = "True"
 print("A is ",type(a))
 
-b = a + 4
-print("b ",b)
+#b = a + 4
+#print("b ",b)
