@@ -13,8 +13,8 @@ public class Hello {
     public static void main(String[] args) {
         System.out.println("Hello " + 3);
 
-        int a = 100, b = 6 ;
-        
+        int a = 5, b = 6;
+
         System.out.println("+ " + (a + b));
         System.out.println("- " + (a - b));
         System.out.println("* " + (a * b));
