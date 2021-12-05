@@ -9,19 +9,24 @@ package chapter3;
  *
  * @author thetkhine
  */
-public class Literal {
+public class TypeConversion {
     public static void main(String[] args) {
-        int i = 0b101;
-        System.out.println("I "+i);
+        short s = 10;
+        int i = s;
         
-        i = 100_200;
-        i = 0xFF;
-        System.out.println("i "+i);
+        i = 19999999;
+        s =(short) i;
         
-        i = 012;
-        System.out.println("i "+i);
+        System.out.println("S "+s);
+        
+        float f = 3.1f;
+        
+        i = (int)f;
         
         String str = "Hello";
-        System.out.println("Str "+str);
+        //i = (int)str;
+        
+        byte b = 10;
+        b =(byte)( b + b);
     }
 }
