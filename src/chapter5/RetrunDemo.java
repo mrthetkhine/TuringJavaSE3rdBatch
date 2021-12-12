@@ -9,22 +9,16 @@ package chapter5;
  *
  * @author thetkhine
  */
-public class ForLoopDemo {
+public class RetrunDemo {
     public static void main(String[] args) {
-        /*
-        for (int i = 0;i < 4; i++) {
-            System.out.println("Counter "+i);
-        }
-        */
-        int i =0;
-        for (; i < 5; ) {
+        for (int i = 0; i < 10; i++) {
             
+            if(i==5)
+            {
+                return;
+            }
             System.out.println("I is "+i);
-            i++;
         }
-        
-        for (int j = 0,k=0; j < 10; j++,k++) {
-            System.out.println("K "+k);
-        }
+        System.out.println("End of loop");
     }
 }
