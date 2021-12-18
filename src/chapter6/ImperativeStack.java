@@ -9,15 +9,19 @@ package chapter6;
  *
  * @author thetkhine
  */
-public class Human {
-    String name;
-    int age;
+public class ImperativeStack {
     
-    void display()
+    static int stackOneData[] = new int[10];
+    static int stackOneTop = -1;
+    
+    static void push(int[]stack,int element)
     {
-        System.out.println("Name =>"+ this.name);
-        System.out.println("Age "+this.age);
-        System.out.println("");
+        
     }
     
+            
+    public static void main(String[] args) {
+        
+       
+    }
 }
