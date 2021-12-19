@@ -10,8 +10,8 @@ package chapter6;
  * @author thetkhine
  */
 public class Stack {
-    int data[];
-    int top;
+    private int data[];
+    private int top;
     
     private static final int DEFAULT_SIZE = 10;
     
@@ -22,7 +22,7 @@ public class Stack {
     }
    
     
-    Stack(int size)
+    public Stack(int size)
     {
         if(size < 1)
         {
@@ -33,7 +33,7 @@ public class Stack {
         this.top = -1;
     }
     
-    void push(int element)
+    public void push(int element)
     {
         if(top == this.data.length-1)
         {
@@ -46,7 +46,7 @@ public class Stack {
         }
         
     }
-    int pop()
+    public int pop()
     {
         if(this.top < 0)
         {
@@ -62,6 +62,9 @@ public class Stack {
     
     public static void main(String[] args) {
         Stack s1 = new Stack();
+        
+        //s1.data  = new int[100];
+        
         for (int i = 0; i < 5; i++) {
             s1.push(i);
         }

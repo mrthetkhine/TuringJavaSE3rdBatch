@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package chapter7;
-
+import chapter6.Stack;
 /**
  *
  * @author thetkhine
@@ -30,6 +30,8 @@ public class OverloadTwo {
         
         int s = 34;
         obj.method(s);
+        
+        //Stack stack = new Stack();
         
     }
 }

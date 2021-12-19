@@ -9,15 +9,7 @@ package chapter7;
  *
  * @author thetkhine
  */
-class Data
-{
-    int value ;
-    
-    Data(int value)
-    {
-        this.value = value;
-    }
-}
+
 public class ValueAndObjectModel {
     public static void main(String[] args) {
         /*
