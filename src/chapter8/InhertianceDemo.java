@@ -9,15 +9,22 @@ package chapter8;
  *
  * @author thetkhine
  */
+/*
+class OrthoSpecialist extends Specialist
+{
+}
+*/
 public class InhertianceDemo {
     public static void main(String[] args) {
         
         Human d = new Doctor("Aung Kyaw",25,"Ortho");
         d.work();
-        d.walk();
+        //d.walk();
       
-        System.out.println("Doctor "+d.name);
-        
+        d = new Human("Aung Aung",16);
+        d.work();
+        //System.out.println("Doctor "+d.name);
+        System.out.println("Instance of "+ d instanceof Object);
         
     }
 }
