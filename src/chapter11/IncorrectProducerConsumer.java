@@ -5,15 +5,19 @@
  */
 package chapter11;
 
-class Buffer{
+interface Buffer{
+    int get();
+    void put(int n);
+}
+class IncorrectBuffer implements Buffer{
     int n;
     
-    synchronized int get()
+    public synchronized int get()
     {
         System.out.println("Got "+n);
         return this.n;
     }
-    synchronized void put(int n)
+    public synchronized void put(int n)
     {
         this.n = n;
         System.out.println("Put "+n);
@@ -64,7 +68,7 @@ class Consumer implements Runnable
  */
 public class IncorrectProducerConsumer {
     public static void main(String[] args) {
-        Buffer buffer = new Buffer();
+        IncorrectBuffer buffer = new IncorrectBuffer();
         
         Producer producer = new Producer(buffer);
         Consumer consumer = new Consumer(buffer);

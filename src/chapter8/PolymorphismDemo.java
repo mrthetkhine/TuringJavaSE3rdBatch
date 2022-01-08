@@ -51,7 +51,7 @@ public class PolymorphismDemo {
     public static void main(String[] args) {
         
         
-        Gateway gateway = new YomaGateway();
+        Gateway gateway = new KBZGateway();
         //gateway = new Gateway();
         gateway.processPayment();
         /*
