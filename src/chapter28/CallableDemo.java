@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,7 +47,7 @@ class Sum implements Callable<Integer>
     
 }
 public class CallableDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TimeoutException {
         ExecutorService exs = Executors.newCachedThreadPool();
         
         Future<Integer> sumResult = exs.submit(new Sum(5));
@@ -53,11 +55,13 @@ public class CallableDemo {
         
         try {
             System.out.println("SumResult "+sumResult.get());
+            //System.out.println("SumResult "+sumResult.get(100,TimeUnit.MILLISECONDS));
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } catch (ExecutionException ex) {
             ex.printStackTrace();
         }
+        System.out.println("Before shutdown");
         exs.shutdown();
     }
 }
