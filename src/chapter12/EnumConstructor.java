@@ -33,5 +33,8 @@ public class EnumConstructor {
         {
             System.out.println("Small is less than medium");
         }
+        System.out.println("Ordinal "+ size.ordinal());
+        System.out.println("Ordinal Medium "+ Size.Medium.ordinal());
+        System.out.println("CompareTo "+ Size.Medium.compareTo(Size.Large));
     }
 }
