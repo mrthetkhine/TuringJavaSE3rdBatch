@@ -1,0 +1,21 @@
+<html>
+    <script>
+        function hello()
+        {
+            console.log("Hello");
+        }
+        let h = hello;
+        h();
+        function another(func)
+        {
+            func();
+        }
+        another(h);
+
+        function getAnother()
+        {
+            return hello;
+        }
+        getAnother()();
+    </script>
+</html>

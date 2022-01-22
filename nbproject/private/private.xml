@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter14/Tuple.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter14/TypeErasureProblem.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter14/IntegerStack.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter14/GenericStack.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter14/TypeInferenceDemo.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter14/GenericMethod.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter14/SubTypeGeneric.java</file>
         </group>
     </open-files>
 </project-private>
