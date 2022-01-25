@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter15/PredefinedInterface.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter15/MethodRef.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter15/VarCapture.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter15/GenericMethodRef.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter15/ConstructorRef.java</file>
-            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter15/GenericFIDemo.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter29/MapDemo.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter29/CollectDemo.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter29/ReduceDemo.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter29/Human.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter29/ParallelStreamDemo.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter29/FilterDemo.java</file>
+            <file>file:/Users/thetkhine/Project/Turing/Java/JavaSE3rdBatch/src/chapter29/SplitIterator.java</file>
         </group>
     </open-files>
 </project-private>
