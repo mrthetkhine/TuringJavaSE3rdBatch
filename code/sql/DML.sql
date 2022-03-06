@@ -90,3 +90,45 @@ FROM actor,actor_in_movie,movie
 WHERE actor.id = actor_in_movie.actor_id
 AND movie.id = actor_in_movie.movie_id
 AND actor_in_movie.movie_id=2;
+
+SELECT *
+FROM actor
+INNER JOIN actor_in_movie
+ON actor.id = actor_in_movie.actor_id;
+
+SELECT actor.name, movie.title
+FROM actor_in_movie
+INNER JOIN actor
+INNER JOIN movie
+ON actor.id = actor_in_movie.actor_id
+AND movie.id = actor_in_movie.movie_id
+AND actor_in_movie.movie_id=2;
+
+SELECT *
+FROM movie,actor
+WHERE movie.id=2 AND
+exists (
+	SELECT id
+	FROM actor_in_movie
+	WHERE actor_in_movie.movie_id = movie.id
+    AND actor_in_movie.actor_id = actor.id
+);
+
+SELECT * FROM movie
+LEFT JOIN actor_in_movie
+ON actor_in_movie.movie_id = movie.id
+
+SELECT * FROM actor_in_movie
+RIGHT JOIN actor
+ON actor_in_movie.actor_id = actor.id
+
+SELECT COUNT(*),gender FROM imdb.actor
+GROUP BY gender
+
+SELECT COUNT(*),gender FROM imdb.actor
+GROUP BY gender
+ORDER BY COUNT(*)
+
+SELECT movie_id,COUNT(*) FROM imdb.actor_in_movie
+GROUP BY movie_id
+HAVING COUNT(*) >= 2

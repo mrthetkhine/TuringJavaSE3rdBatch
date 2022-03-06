@@ -1,2 +1,0 @@
-chapter12.Valid
-chapter12.AnnotationDemo

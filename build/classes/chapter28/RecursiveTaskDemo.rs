@@ -1,3 +1,0 @@
-chapter28.SumTask
-chapter28.RecursiveTaskDemo
-chapter28.Sum

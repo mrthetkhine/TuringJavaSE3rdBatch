@@ -1,4 +1,0 @@
-chapter28.SquareDivideConquer
-chapter28.ForkJoinDemo
-chapter28.MinDivideConquer
-chapter28.SumDivideConquer

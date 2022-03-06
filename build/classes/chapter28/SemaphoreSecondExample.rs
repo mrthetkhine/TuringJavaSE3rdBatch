@@ -1,2 +1,0 @@
-chapter28.PrintThread
-chapter28.SemaphoreSecondExample

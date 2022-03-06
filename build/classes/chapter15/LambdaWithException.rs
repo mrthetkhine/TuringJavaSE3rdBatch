@@ -1,3 +1,0 @@
-chapter15.DoubleNumericArrayFunc
-chapter15.LambdaWithException
-chapter15.EmptyArrayException

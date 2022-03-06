@@ -1,3 +1,0 @@
-chapter23.HttpServer
-chapter23.RequestProcessor
-chapter23.HttpRequestProcessor

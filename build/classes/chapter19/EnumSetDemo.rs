@@ -1,2 +1,0 @@
-chapter19.Gender
-chapter19.EnumSetDemo

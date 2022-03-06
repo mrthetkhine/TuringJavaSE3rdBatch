@@ -1,2 +1,0 @@
-chapter15.MyFunc
-chapter15.GenericMethodRef

@@ -1,2 +1,0 @@
-chapter11.CorrectProducerConsumer
-chapter11.CorrectBuffer

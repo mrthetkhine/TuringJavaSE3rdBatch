@@ -1,3 +1,0 @@
-chapter28.SharedData
-chapter28.AtomicDemo
-chapter28.IncrementThread

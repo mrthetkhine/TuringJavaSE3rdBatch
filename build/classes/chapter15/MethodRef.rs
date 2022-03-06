@@ -1,2 +1,0 @@
-chapter15.VoidFunc2
-chapter15.MethodRef
