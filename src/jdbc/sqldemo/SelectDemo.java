@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +25,18 @@ import jdbc.model.Actor;
  */
 public class SelectDemo {
     
-    public static List<Actor> getAllActor()
+    public static List<Actor> getAllActor(String actorName)
     {
         List<Actor> actors = new ArrayList<Actor>();
         
         try {
+            String sql = "SELECT * FROM Actor WHERE name LIKE ?";
             Connection con = DAO.getDAO().getConnection();
-            Statement sqlStatement = con.createStatement();
+            //Statement sqlStatement = con.createStatement();
+            PreparedStatement stat = con.prepareStatement(sql);
+            stat.setString(1, "%"+actorName+"%");
             
-            String sql = "SELECT * FROM Actor";
-            ResultSet result = sqlStatement.executeQuery(sql);
+            ResultSet result = stat.executeQuery();
             
             while(result.next())
             {
@@ -52,14 +55,14 @@ public class SelectDemo {
                 //System.out.println("ID "+id + " Name "+name + " gender "+gender+" birthday "+birthday);
             }
             result.close();
-            sqlStatement.close();
+            stat.close();
         } catch (SQLException ex) {
            ex.printStackTrace();
         }
         return actors;
     }
     public static void main(String[] args) {
-        List<Actor> actors = getAllActor();
+        List<Actor> actors = getAllActor("Robert");
         for(Actor actor : actors)
         {
             System.out.println(actor);

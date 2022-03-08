@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -26,6 +28,21 @@ import jdbc.model.Movie;
  */
 public class SqlUtil {
     
+    public static String dateToString(Date date)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+    public static Date strToDate(String dateStr)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return sdf.parse(dateStr);
+        } catch (ParseException ex) {
+            Logger.getLogger(SqlUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public static<T> HashMap<String,Field> getFieldNameType(T model)
     {
         HashMap<String,Field> fieldType = new HashMap<String,Field>();
@@ -110,6 +127,7 @@ public class SqlUtil {
                 System.out.println(act);
             }
 */
+            /*
             String sql = "SELECT * FROM movie";
             ResultSet result = sqlStatement.executeQuery(sql);
             Movie movie = new Movie();
@@ -119,7 +137,9 @@ public class SqlUtil {
             {
                 System.out.println(mov);
             }
-            
+            */
+            //String dateStr = dateToString(new Date());
+            System.out.println(strToDate("2021-4-25"));
         } catch (Exception ex) {
             Logger.getLogger(SqlUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
