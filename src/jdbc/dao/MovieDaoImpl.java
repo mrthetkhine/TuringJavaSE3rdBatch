@@ -27,27 +27,46 @@ public class MovieDaoImpl implements MovieDao{
     public Optional<Movie> getMovieById(Long id) {
        
         try {
-            String sql = "SELECT * FROM Movie WHERE ID=? ";
+           
             Connection con = DAO.getDAO().getConnection();
-            //Statement sqlStatement = con.createStatement();
+            
+            String sql = "SELECT * FROM Movie WHERE ID=? ";
             PreparedStatement stat = con.prepareStatement(sql);
             stat.setLong(1, id);
+            
             ResultSet result = stat.executeQuery();
-            if(result.next())
-            {
-                Movie movie = new Movie();
-                movie.setId(result.getLong("Id"));
-                movie.setTitle(result.getString("Title"));
-                movie.setYear(result.getLong("year"));
-                
-                result.close();
-                return Optional.of(movie);
-            }
-            else
-            {
-                stat.close();
-                return Optional.empty();
-            }
+            Optional<Movie> resultMovie = singleResultToMovie(result) ;
+            
+            result.close();
+            stat.close();
+            
+            return resultMovie; 
+           
+        } 
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return Optional.empty();
+    }
+    
+     @Override
+    public Optional<Movie> getMovieByTitleYear(String title, Long year) {
+        try {
+            
+            Connection con = DAO.getDAO().getConnection();
+            
+            String sql = "SELECT * FROM Movie WHERE title=? AND year=?";
+            PreparedStatement stat = con.prepareStatement(sql);
+            stat.setString(1, title);
+            stat.setLong(2, year);
+            
+            ResultSet result = stat.executeQuery();
+            Optional<Movie> resultMovie = singleResultToMovie(result) ;
+            
+            result.close();
+            stat.close();
+            
+            return resultMovie;
             
            
         } 
@@ -56,6 +75,26 @@ public class MovieDaoImpl implements MovieDao{
         }
         return Optional.empty();
     }
+
+    private Optional<Movie> singleResultToMovie(ResultSet result) throws SQLException {
+        Optional<Movie> resultMovie ;
+        if(result.next())
+        {
+            Movie movie = new Movie();
+            movie.setId(result.getLong("Id"));
+            movie.setTitle(result.getString("Title"));
+            movie.setYear(result.getLong("year"));
+            
+            
+            resultMovie = Optional.of(movie);
+        }
+        else
+        {
+            resultMovie = Optional.empty();
+        }
+        return resultMovie;
+    }
+
     @Override
     public List<Movie> getAllMovie() {
         List<Movie> movies = new ArrayList<Movie>();
@@ -90,6 +129,16 @@ public class MovieDaoImpl implements MovieDao{
             int rows = stat.executeUpdate();
             
             inserted = rows >0;
+            stat.close();
+            
+            stat = con.prepareStatement("SELECT LAST_INSERT_ID();");
+            ResultSet resultSet = stat.executeQuery();
+            if(resultSet.next())
+            {
+                Long id = resultSet.getLong(1);
+                movie.setId(id);
+            }
+            resultSet.close();
             stat.close();
         } 
         catch (SQLException ex) {
@@ -144,8 +193,8 @@ public class MovieDaoImpl implements MovieDao{
     public static void main(String[] args) {
         MovieDao dao = new MovieDaoImpl();
         
-        Optional<Movie> movie = dao.getMovieById(1L);
-        System.out.println(movie.get());
+        //Optional<Movie> movie = dao.getMovieById(1L);
+        //System.out.println(movie.get());
         /*
         //movie.setId(5L);
         movie.setTitle("The Batman");
@@ -161,8 +210,18 @@ public class MovieDaoImpl implements MovieDao{
             System.out.println(movie);
         }
         */
+        /*
+        Movie movie = new Movie();
+        movie.setTitle("The Godfather");
+        movie.setYear(1972L);
+        dao.insertMovie(movie);
+        */
+        Optional<Movie> movie = dao.getMovieByTitleYear("The Godfather", 1972L);
+        
+        System.out.println("Movie "+movie.get());
     }
 
+   
    
 
     

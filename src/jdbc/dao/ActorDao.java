@@ -7,17 +7,15 @@ package jdbc.dao;
 
 import java.util.List;
 import java.util.Optional;
+import jdbc.model.Actor;
 import jdbc.model.Movie;
 
 /**
  *
  * @author thetkhine
  */
-public interface MovieDao {
-    Optional<Movie> getMovieById(Long id);
-    Optional<Movie> getMovieByTitleYear(String title, Long year);
-    List<Movie> getAllMovie();
-    boolean insertMovie(Movie movie);
-    boolean updateMovie(Movie movie);
-    boolean deleteMovie(Long movieId);
+public interface ActorDao {
+    Optional<Actor> getActorById(Long id);
+    List<Actor> getAllActor();
+    boolean insertActor(Actor actor);
 }

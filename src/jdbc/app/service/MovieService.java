@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jdbc.dao;
+package jdbc.app.service;
 
 import java.util.List;
 import java.util.Optional;
+import jdbc.model.Actor;
 import jdbc.model.Movie;
 
 /**
  *
  * @author thetkhine
  */
-public interface MovieDao {
-    Optional<Movie> getMovieById(Long id);
-    Optional<Movie> getMovieByTitleYear(String title, Long year);
+public interface MovieService {
     List<Movie> getAllMovie();
-    boolean insertMovie(Movie movie);
-    boolean updateMovie(Movie movie);
-    boolean deleteMovie(Long movieId);
+    Optional<Movie> addMovie(Movie movie) throws BusinessRuleException;
+    //boolean isMovieDuplicate(String title,Long year);
+    List<Actor> getAllActor();
+    Optional<Actor> getActorById(Long actorId);
 }
