@@ -15,6 +15,7 @@ import jdbc.model.Movie;
  */
 public interface MovieDao {
     Optional<Movie> getMovieById(Long id);
+    public List<Movie> searchMovie(Movie movie);
     Optional<Movie> getMovieByTitleYear(String title, Long year);
     List<Movie> getAllMovie();
     boolean insertMovie(Movie movie);

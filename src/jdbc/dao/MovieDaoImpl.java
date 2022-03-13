@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -114,6 +115,55 @@ public class MovieDaoImpl implements MovieDao{
         }
         return movies;
     }
+    //title = Titanic
+    List<String> getAlConditionForSearch(Movie movie)
+    {
+        List<String> predicates = new ArrayList<>();
+        if(movie.getTitle() != null)
+        {
+            predicates.add("title=\""+ movie.getTitle()+"\"");
+        }
+        if(movie.getYear() != null)
+        {
+             predicates.add("year="+ movie.getYear()+"");
+        }
+        return predicates;
+    }
+    String getWhereCaluseForSearch(Movie movie)
+    {
+        String whereClause = "";
+        List<String> predicates = this.getAlConditionForSearch(movie);
+        if(predicates.size() >0)
+        {
+            whereClause = " WHERE ";
+            whereClause += String.join(" AND ", predicates);
+            
+        }
+        return whereClause;
+    }
+    
+    @Override
+    public List<Movie> searchMovie(Movie movie) {
+        List<Movie> movies = new ArrayList<Movie>();
+        String title = movie.getTitle();
+        Long year = movie.getYear();
+        try {
+            String whereCaluse = getWhereCaluseForSearch(movie);
+            String sql = "SELECT * FROM Movie "+whereCaluse;
+            Connection con = DAO.getDAO().getConnection();
+            //Statement sqlStatement = con.createStatement();
+            PreparedStatement stat = con.prepareStatement(sql);
+            
+            ResultSet result = stat.executeQuery();
+            movies = dbResultToModel(result,new Movie());
+            
+            stat.close();
+        } 
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return movies;
+    }
     @Override
     public boolean insertMovie(Movie movie) {
         boolean inserted = false;
@@ -191,7 +241,7 @@ public class MovieDaoImpl implements MovieDao{
         return deleted;
     }
     public static void main(String[] args) {
-        MovieDao dao = new MovieDaoImpl();
+        MovieDaoImpl dao = new MovieDaoImpl();
         
         //Optional<Movie> movie = dao.getMovieById(1L);
         //System.out.println(movie.get());
@@ -216,18 +266,18 @@ public class MovieDaoImpl implements MovieDao{
         movie.setYear(1972L);
         dao.insertMovie(movie);
         */
+        /*
         Optional<Movie> movie = dao.getMovieByTitleYear("The Godfather", 1972L);
         
         System.out.println("Movie "+movie.get());
+        */
+        
+        Movie movie = new Movie();
+        movie.setTitle("Titanic");
+        //movie.setYear(2009L);
+        String whereCaluse = dao.getWhereCaluseForSearch(movie);
+        
+        System.out.println("=> "+ whereCaluse);
     }
-
-   
-   
-
-    
-
-    
-
-    
-    
+        
 }

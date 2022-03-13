@@ -5,6 +5,7 @@
  */
 package jdbc.app;
 
+import jdbc.app.service.MockMovieServiceImpl;
 import jdbc.app.service.MovieService;
 import jdbc.app.service.MovieServiceImpl;
 import jdbc.dao.MovieDao;
@@ -20,7 +21,8 @@ public class App {
     MovieService movieService;
     private App()
     {
-      this.movieService = new MovieServiceImpl();
+        this.movieService = new MovieServiceImpl();
+        //this.movieService = new MockMovieServiceImpl();
     }
     public static App getApp()
     {

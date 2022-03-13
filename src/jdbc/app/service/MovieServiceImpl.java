@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.Optional;
 import jdbc.dao.ActorDao;
 import jdbc.dao.ActorDaoImpl;
+import jdbc.dao.ActorInMovieDao;
+import jdbc.dao.ActorInMovieDaoImpl;
 import jdbc.dao.MovieDao;
 import jdbc.dao.MovieDaoImpl;
 import jdbc.model.Actor;
+import jdbc.model.ActorInMovie;
 import jdbc.model.Movie;
 
 /**
@@ -22,6 +25,7 @@ public class MovieServiceImpl implements MovieService{
 
     MovieDao movieDao = new MovieDaoImpl();
     ActorDao actorDao = new ActorDaoImpl();
+    ActorInMovieDao actorInMovieDao = new ActorInMovieDaoImpl();
     
     @Override
     public List<Movie> getAllMovie() {
@@ -67,6 +71,31 @@ public class MovieServiceImpl implements MovieService{
     @Override
     public Optional<Actor> getActorById(Long actorId) {
         return this.actorDao.getActorById(actorId);
+    }
+
+    @Override
+    public boolean assignActorToMovie(ActorInMovie actorInMovie)throws BusinessRuleException {
+        Actor actor = actorInMovie.getActor();
+        Movie movie = actorInMovie.getMovie();
+        if( this.actorInMovieDao.getActorInMovie(actor.getId(), movie.getId()).isPresent())
+        {
+            throw new BusinessRuleException("There is already mapping for actor & movie");
+        }
+        else
+        {
+            this.actorInMovieDao.insertActorInMovie(actorInMovie);
+        }
+        return true;
+    }
+
+    @Override
+    public List<ActorInMovie> getAllActorInMovie() {
+        return actorInMovieDao.getAllActorInMovie();
+    }
+
+    @Override
+    public List<Movie> searchMovie(Movie movie) {
+       return movieDao.searchMovie(movie);
     }
     
 }

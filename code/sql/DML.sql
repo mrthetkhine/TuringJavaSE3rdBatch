@@ -132,3 +132,9 @@ ORDER BY COUNT(*)
 SELECT movie_id,COUNT(*) FROM imdb.actor_in_movie
 GROUP BY movie_id
 HAVING COUNT(*) >= 2
+
+SELECT movie.id,movie.title,actor.id,actor.name 
+FROM actor,actor_in_movie,movie
+WHERE actor.id = actor_in_movie.actor_id
+AND movie.id = actor_in_movie.movie_id
+ORDER BY movie.id;

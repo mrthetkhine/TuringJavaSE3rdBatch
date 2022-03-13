@@ -12,6 +12,7 @@ package jdbc.app;
 public class MainFrame extends javax.swing.JFrame {
 
     MovieForm movieForm = new MovieForm();
+    ActorInMovieFrame actorInMovieForm = new ActorInMovieFrame();
     /**
      * Creates new form MainFrame
      */
@@ -50,6 +51,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu1.add(mnuMovie);
 
         mnuActorInMovie.setText("Actor In Movie");
+        mnuActorInMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuActorInMovieActionPerformed(evt);
+            }
+        });
         jMenu1.add(mnuActorInMovie);
 
         jMenuBar1.add(jMenu1);
@@ -77,6 +83,11 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.movieForm.setVisible(true);
     }//GEN-LAST:event_mnuMovieActionPerformed
+
+    private void mnuActorInMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuActorInMovieActionPerformed
+        // TODO add your handling code here:
+        this.actorInMovieForm.setVisible(true);
+    }//GEN-LAST:event_mnuActorInMovieActionPerformed
 
     /**
      * @param args the command line arguments
