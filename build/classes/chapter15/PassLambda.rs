@@ -1,0 +1,2 @@
+chapter15.PassLambda
+chapter15.VoidFunc

@@ -13,11 +13,17 @@ public class MainFrame extends javax.swing.JFrame {
 
     MovieForm movieForm = new MovieForm();
     ActorInMovieFrame actorInMovieForm = new ActorInMovieFrame();
+    MovieSearchForm movieSearchForm = new MovieSearchForm();
+    LoginDialog dialog;
+    RegisterUser registerUser = new RegisterUser();
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+           
+        this.dialog = new LoginDialog(this, true);
+        dialog.setVisible(true);
     }
 
     /**
@@ -33,14 +39,16 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuMovie = new javax.swing.JMenuItem();
+        mnuSearchMovie = new javax.swing.JMenuItem();
         mnuActorInMovie = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        mnuRegisterUser = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("SetUp");
+        jMenu1.setText("File");
 
         mnuMovie.setText("Movie");
         mnuMovie.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +57,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnuMovie);
+
+        mnuSearchMovie.setText("Search Movie");
+        mnuSearchMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSearchMovieActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuSearchMovie);
 
         mnuActorInMovie.setText("Actor In Movie");
         mnuActorInMovie.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +77,15 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
+
+        mnuRegisterUser.setText("Register User");
+        mnuRegisterUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRegisterUserActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuRegisterUser);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -88,6 +113,16 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.actorInMovieForm.setVisible(true);
     }//GEN-LAST:event_mnuActorInMovieActionPerformed
+
+    private void mnuSearchMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSearchMovieActionPerformed
+        // TODO add your handling code here:
+        this.movieSearchForm.setVisible(true);
+    }//GEN-LAST:event_mnuSearchMovieActionPerformed
+
+    private void mnuRegisterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegisterUserActionPerformed
+        // TODO add your handling code here:
+        this.registerUser.setVisible(true);
+    }//GEN-LAST:event_mnuRegisterUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,5 +166,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem mnuActorInMovie;
     private javax.swing.JMenuItem mnuMovie;
+    private javax.swing.JMenuItem mnuRegisterUser;
+    private javax.swing.JMenuItem mnuSearchMovie;
     // End of variables declaration//GEN-END:variables
 }

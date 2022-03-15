@@ -5,6 +5,8 @@
  */
 package jdbc.app;
 
+import jdbc.app.service.AuthService;
+import jdbc.app.service.AuthServiceImpl;
 import jdbc.app.service.MockMovieServiceImpl;
 import jdbc.app.service.MovieService;
 import jdbc.app.service.MovieServiceImpl;
@@ -19,10 +21,12 @@ public class App {
     private static App singleton;
     
     MovieService movieService;
+    AuthService authService;
     private App()
     {
         this.movieService = new MovieServiceImpl();
         //this.movieService = new MockMovieServiceImpl();
+        this.authService = new AuthServiceImpl();
     }
     public static App getApp()
     {

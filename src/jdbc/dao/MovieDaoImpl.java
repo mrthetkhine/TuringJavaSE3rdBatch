@@ -121,7 +121,7 @@ public class MovieDaoImpl implements MovieDao{
         List<String> predicates = new ArrayList<>();
         if(movie.getTitle() != null)
         {
-            predicates.add("title=\""+ movie.getTitle()+"\"");
+            predicates.add("title LIKE \"%"+ movie.getTitle()+"%\"");
         }
         if(movie.getYear() != null)
         {
